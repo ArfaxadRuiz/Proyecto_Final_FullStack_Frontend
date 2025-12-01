@@ -1,0 +1,54 @@
+@use '../variables' as *;
+@use '../mixins' as *;
+
+.card {
+  @include card;  
+  width: 220px;
+  text-align: center;
+  padding: 15px;
+  border-radius: $radius;
+  background: white;
+  box-shadow: $shadow;
+
+  &__title {
+    font-size: 18px;
+    font-weight: bold;
+    color: $text;
+  }
+
+  &__img-box {
+    width: 100%;
+    height: 150px;
+    background: #e1e1e1;
+    border-radius: $radius;
+    margin: 10px 0;
+    overflow: hidden;
+  }
+
+  &__console {
+    color: $text;
+    font-size: 14px;
+    margin-bottom: 5px;
+    opacity: 0.8;
+  }
+
+  &__owned {
+    font-size: 14px;
+    margin-bottom: 10px;
+  }
+
+  &__status {
+    @include flex(space-between, center);
+    margin-top: 10px;
+
+    .dot {
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+
+      &.ok { background: $ok; }
+      &.playing { background: $playing; }
+      &.pending { background: $pending; }
+    }
+  }
+}

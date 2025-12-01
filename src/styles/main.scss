@@ -1,14 +1,15 @@
 @use 'variables' as *;
 @use 'mixins' as *;
 
-* { box-sizing: border-box; }
-html, body, #root {
-  height: 100%;
-  font-family: $font-stack;
-  background: $bg;
-  color: $text;
+
+@use "./components/dashboard";
+@use "./components/dashboardHeader";
+@use "./components/dashboardMenu";
+@use "./components/card";
+
+// Reset global
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
-
-a { color: inherit; text-decoration: none; }
-
-@import './components/login';

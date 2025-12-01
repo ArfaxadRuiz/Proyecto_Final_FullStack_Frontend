@@ -1,0 +1,14 @@
+@use '../variables' as *;
+@use '../mixins' as *;
+
+.dashboard {
+  background: $bg;
+  font-family: $font-main;
+  padding: 20px;
+
+  &__cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+}

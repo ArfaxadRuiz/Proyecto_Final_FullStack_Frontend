@@ -1,5 +1,30 @@
+@use './variables' as *;
+
 @mixin center-flex {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+@mixin flex($justify: center, $align: center, $direction: row) {
+  display: flex;
+  justify-content: $justify;
+  align-items: $align;
+  flex-direction: $direction;
+}
+
+@mixin card {
+  background: white;
+  border-radius: $radius;
+  box-shadow: $shadow;
+  padding: 20px;
+}
+
+@mixin clickable {
+  cursor: pointer;
+  transition: 0.2s;
+
+  &:hover {
+    opacity: 0.85;
+  }
 }

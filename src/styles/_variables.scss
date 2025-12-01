@@ -1,7 +1,19 @@
-// colores, tipografías, tamaños
-$brand: #6c5ce7;
-$accent: #00b894;
-$text: #2d3436;
-$bg: #f5f6fa;
+// Colores principales
+$brand: #6c5ce7;        // morado principal
+$accent: #00b894;       // verde secundario
+$text: #2d3436;         // color texto
+$bg: #f5f6fa;           // fondo general
+
+// Bordes
 $radius: 10px;
-$font-stack: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+
+// Tipografías
+$font-main: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+
+// Sombras
+$shadow: 0 4px 12px rgba(0,0,0,0.1);
+
+// Colores de estatus (para las cards)
+$ok: #3abf38;        // Verde completado
+$playing: #f1c40f;   // Amarillo jugando
+$pending: #e74c3c;   // Rojo pendiente
