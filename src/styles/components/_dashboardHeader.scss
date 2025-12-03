@@ -3,7 +3,10 @@
 
 .dashboard__header {
   @include flex(space-between, center);
-  padding: 10px 0;
+  padding: 10px 20px;
+  background: $brand;
+  border-bottom: 4px solid $bg;
+  border-radius: 0 0 $radius $radius;
 
   .dashboard__title {
     font-size: 32px;
@@ -16,11 +19,11 @@
     gap: 15px;
 
     .dashboard__user-img {
-      width: 60px;
-      height: 60px;
+      width: 80px;
+      height: 80px;
       border-radius: 50%;
       background: lightgray;
-      border: 2px solid $brand;  // <- $brand en lugar de $primary
+      border: 2px solid $brand;
       object-fit: cover;
     }
 
@@ -33,7 +36,7 @@
     .dashboard__user-config {
       display: inline-block;
       font-size: 14px;
-      color: $brand;              // <- $brand en lugar de $primary
+      color: white;
       @include clickable;
     }
   }

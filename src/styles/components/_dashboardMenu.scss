@@ -9,7 +9,7 @@
   .menu-item {
     position: relative;
     padding: 10px 18px;
-    background: $brand;     // antes $primary
+    background: $brand;
     color: white;
     border-radius: 8px;
     font-size: 16px;
@@ -23,7 +23,7 @@
       position: absolute;
       top: -8px;
       right: -8px;
-      background: $accent;   // antes $secondary
+      background: $accent;
       padding: 4px 7px;
       border-radius: 50%;
       font-size: 12px;
@@ -32,7 +32,7 @@
     }
 
     &.active {
-      background: darken($brand, 8%); // sutil opción para botón activo
+      background: darken($brand, 8%);
     }
   }
 }
