@@ -4,7 +4,7 @@ function Menu() {
             <ul className="dashboard__menu-list">
 
                 <li className="dashboard__menu-item">
-                    <a href="/dashboard" className="dashboard__menu-link">Dashboard</a>
+                    <a href="/dashboard" className="dashboard__menu-link">Mis Juegos</a>
                 </li>
 
                 <li className="dashboard__menu-item">
@@ -12,11 +12,7 @@ function Menu() {
                 </li>
 
                 <li className="dashboard__menu-item">
-                    <a href="#" className="dashboard__menu-link">Mi Biblioteca</a>
-                </li>
-
-                <li className="dashboard__menu-item">
-                    <a href="#" className="dashboard__menu-link">Juegos Deseados</a>
+                    <a href="/deseados" className="dashboard__menu-link">Juegos Deseados</a>
                 </li>
 
             </ul>
