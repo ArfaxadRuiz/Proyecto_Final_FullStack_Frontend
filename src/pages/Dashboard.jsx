@@ -1,5 +1,6 @@
 import Header from "../components/Header";
 import Menu from "../components/Menu";
+import Card from "../components/Card";
 import image1 from '../utils/image1.jpg';
 import image2 from '../utils/image2.jpg';
 import image3 from '../utils/image3.jpg';
@@ -23,50 +24,30 @@ export default function Dashboard (){
             {/* 3. TARJETAS */}
             <section className="dashboard__cards">
                 
-                <div className="card">
-                    <p className="card__title">Nombre del juego</p>
 
-                    <div className="card__img-box">
-                        <img src={image1} alt="Juego" className="card__img" />
-                    </div>
+                <Card
+                    title="Nombre del juego"
+                    consoleName="PS5"
+                    owned="both"
+                    status="ok"
+                    img={image1}
+                />
 
-                    <p className="card__console">PS5</p>
-                    <p className="card__owned">Físico</p>
-                    <div className="card__status">
-                        <span className="dot ok"></span>
-                    </div>
+                <Card
+                    title="Nombre del juego"
+                    consoleName="PS5"
+                    owned="digital"
+                    status="pending"
+                    img={image2}
+                />
 
-                </div>
-
-                <div className="card">
-                    <p className="card__title">Nombre del juego</p>
-
-                    <div className="card__img-box">
-                        <img src={image2} alt="Juego" className="card__img" />
-                    </div>
-
-                    <p className="card__console">PS5</p>
-                    <p className="card__owned">Físico</p>
-                    <div className="card__status">
-                        <span className="dot playing"></span>
-                    </div>
-
-                </div>
-
-                <div className="card">
-                    <p className="card__title">Nombre del juego</p>
-
-                    <div className="card__img-box">
-                        <img src={image3} alt="Juego" className="card__img" />
-                    </div>
-
-                    <p className="card__console">PS5</p>
-                    <p className="card__owned">Físico</p>
-                    <div className="card__status">
-                        <span className="dot pending"></span>
-                    </div>
-
-                </div>
+                <Card
+                    title="Nombre del juego"
+                    consoleName="PS5"
+                    owned="physical"
+                    status="playing"
+                    img={image3}
+                />
 
             </section>
         </div>
