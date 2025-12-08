@@ -2,7 +2,6 @@ import { useSelector } from "react-redux";
 import Header from "../components/Header";
 import Menu from "../components/Menu";
 import Card from "../components/Card";
-import userImage from "../utils/imageJugador.jpg";
 
 
 export default function Dashboard (){
@@ -13,11 +12,7 @@ export default function Dashboard (){
         <div className="dashboard">
             
             {/* 1. HEADER */}
-            <Header 
-                title={"Mis Videojuegos"}
-                userName={"Nombre del Usuario"}
-                userImg={userImage}
-            />
+            <Header title="Juegos Deseados" />
 
             {/* 2. MENÚ */}
             <Menu />

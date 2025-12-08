@@ -1,7 +1,6 @@
 import { useState } from "react";
 import Header from "../components/Header";
 import Menu from "../components/Menu";
-import userImage from "../utils/imageJugador.jpg";
 import '../styles/main.scss';
 
 
@@ -34,11 +33,7 @@ function AddGame() {
   return (
     <div className="dashboard">
       {/* Header */}
-      <Header 
-        title={"Mis Videojuegos"}
-        userName={"Nombre del Usuario"}
-        userImg={userImage}
-      />
+      <Header title="Agregar Juego" />
 
       {/* Menu */}
       <Menu />
