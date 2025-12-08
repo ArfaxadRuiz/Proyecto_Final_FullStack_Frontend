@@ -1,7 +1,9 @@
+import Header from "../components/Header";
+import Menu from "../components/Menu";
 import image1 from '../utils/image1.jpg';
 import image2 from '../utils/image2.jpg';
 import image3 from '../utils/image3.jpg';
-import imagenJugador from "../utils/imageJugador.jpg";
+import userImage from "../utils/imageJugador.jpg";
 
 
 export default function Dashboard (){
@@ -9,37 +11,14 @@ export default function Dashboard (){
         <div className="dashboard">
             
             {/* 1. HEADER */}
-            <header className="dashboard__header">
-
-                <h1 className="dashboard__title">Titulo de mi app</h1>
-
-                <div className="dashboard__user">
-
-                    <img src={imagenJugador} alt="Foto de usuario" className="dashboard__user-img"/>
-                    <div>
-                        <p className="dashboard__user-name">Nombre del usuario</p>
-                        <a href="" className="dashboard__user-config">Configurar Perfil</a>
-                    </div>
-
-                </div>
-            </header>
+            <Header 
+                title={"Mis Videojuegos"}
+                userName={"Nombre del Usuario"}
+                userImg={userImage}
+            />
 
             {/* 2. MENÚ */}
-            <nav className="dashboard__menu">
-                <button className="menu-item">
-                    Mis Juegos
-                    <span className="menu-badge">3</span>
-                </button>
-
-                <button className="menu-item">
-                    Lista de deseados
-                    <span className="menu-badge">3</span>
-                </button>
-
-                <button className="menu-item">
-                    Agregar Juego
-                </button>
-            </nav>
+            <Menu />
 
             {/* 3. TARJETAS */}
             <section className="dashboard__cards">
