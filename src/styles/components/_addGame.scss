@@ -1,0 +1,66 @@
+@use "../variables" as *;
+@use "../mixins" as *;
+
+.add-game {
+  max-width: 600px;
+  margin: 0 auto;
+  margin-top: 25px;
+  background: white;
+  padding: 25px;
+  border-radius: $radius;
+  box-shadow: $shadow;
+
+  h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: $text;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    label {
+      display: flex;
+      flex-direction: column;
+      font-weight: bold;
+      color: $text;
+
+      input,
+      select {
+        margin-top: 8px;
+        padding: 10px;
+        border: 1px solid lighten($text, 40%);
+        border-radius: $radius;
+        font-size: 15px;
+        background: $bg;
+
+        &:focus {
+          outline: none;
+          border-color: $brand;
+          box-shadow: 0 0 4px rgba(0,0,0,0.1);
+        }
+      }
+    }
+
+    button {
+      padding: 12px;
+      background: $brand;
+      color: white;
+      border: none;
+      border-radius: $radius;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      @include clickable;
+    }
+  }
+}
+
+/* Responsive */
+@include respond(sm) {
+  .add-game {
+    padding: 20px;
+  }
+}

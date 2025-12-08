@@ -2,6 +2,8 @@ import { useState } from "react";
 import Header from "../components/Header";
 import Menu from "../components/Menu";
 import userImage from "../utils/imageJugador.jpg";
+import '../styles/main.scss';
+
 
 function AddGame() {
   const [title, setTitle] = useState("");
@@ -41,7 +43,8 @@ function AddGame() {
       {/* Menu */}
       <Menu />
 
-      <div>
+      {/* Formulario */}
+      <div className="add-game">
         <h1>Agregar un nuevo juego</h1>
 
         <form onSubmit={handleAddGame}>
