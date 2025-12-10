@@ -4,7 +4,7 @@ import { configureStore } from "@reduxjs/toolkit";
 import userReducer from "../../redux/userSlice";
 import Header from "../Header";
 
-// Mock del Link para evitar el error de react-router-dom
+// Mock del Link
 jest.mock("react-router-dom", () => ({
   Link: ({ children, to }) => <a href={to}>{children}</a>,
 }));
