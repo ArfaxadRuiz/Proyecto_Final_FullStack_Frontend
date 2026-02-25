@@ -1,50 +1,48 @@
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { fetchGames } from "../redux/gamesSlice";
+
 import Header from "../components/Header";
 import Menu from "../components/Menu";
 import Card from "../components/Card";
-import image1 from '../utils/image1.jpg';
-import image2 from '../utils/image2.jpg';
-import image3 from '../utils/image3.jpg';
 
 
-export default function Dashboard (){
-    return(
+export default function Dashboard() {
+
+    const dispatch = useDispatch();
+    const { games, status } = useSelector(state => state.games);
+
+    useEffect(() => {
+        dispatch(fetchGames());
+    }, [dispatch]);
+
+    if (status === "loading") {
+        return <p>Cargando juegos...</p>;
+    }
+
+    if (status === "failed") {
+        return <p>Error al cargar los juegos</p>;
+    }
+
+    return (
         <div className="dashboard">
-            
-            {/* 1. HEADER */}
-            <Header title="Mis Videojuegos" />
 
-            {/* 2. MENÚ */}
+            <Header title="Mis Videojuegos" />
             <Menu />
 
-            {/* 3. TARJETAS */}
             <section className="dashboard__cards">
-                
-
-                <Card
-                    title="Nombre del juego"
-                    consoleName="PS5"
-                    owned="both"
-                    status="ok"
-                    img={image1}
-                />
-
-                <Card
-                    title="Nombre del juego"
-                    consoleName="PS5"
-                    owned="digital"
-                    status="pending"
-                    img={image2}
-                />
-
-                <Card
-                    title="Nombre del juego"
-                    consoleName="PS5"
-                    owned="physical"
-                    status="playing"
-                    img={image3}
-                />
-
+                {games.map(game => (
+                    <Card
+                        key={game.id}
+                        title={game.title}
+                        consoleName={game.console}
+                        owned={game.owned}
+                        status={game.status}
+                        img={game.image}
+                    />
+                ))}
             </section>
+
         </div>
     );
 }
