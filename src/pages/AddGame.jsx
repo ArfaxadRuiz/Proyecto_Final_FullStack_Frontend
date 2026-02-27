@@ -1,4 +1,5 @@
 import { useState } from "react";
+import axios from "axios";
 import Header from "../components/Header";
 import Menu from "../components/Menu";
 import '../styles/main.scss';
@@ -7,28 +8,51 @@ import '../styles/main.scss';
 function AddGame() {
   const [title, setTitle] = useState("");
   const [consoleName, setConsoleName] = useState("PS5");
-  const [owned, setOwned] = useState("yes");
+  const [owned, setOwned] = useState("physical");
   const [status, setStatus] = useState("no-played");
   const [imageFile, setImageFile] = useState(null);
 
-  const handleAddGame = (e) => {
-      e.preventDefault();
+  const handleAddGame = async (e) => {
+    e.preventDefault();
 
-      const newGame = {
-          title,
-          console: consoleName,
-          owned,
-          status,
-          image: imageFile,
-      };
-      console.log("Juego agregado: ", newGame);
+    try {
+        const token = localStorage.getItem("token");
 
-      setTitle("");
-      setConsoleName("PS5");
-      setOwned("yes");
-      setStatus("no-played");
-      setImageFile(null);
-  };
+        const formData = new FormData();
+        formData.append("title", title);
+        formData.append("console", consoleName);
+        formData.append("owned", owned);
+        formData.append("status", status);
+
+        if (imageFile) {
+            formData.append("image", imageFile);
+        }
+
+        await axios.post(
+            "http://localhost:8000/api/games/",
+            formData,
+            {
+                headers: {
+                    Authorization: `Bearer ${token}`,
+                    "Content-Type": "multipart/form-data"
+                }
+            }
+        );
+
+        alert("Juego guardado correctamente");
+
+        // Reset
+        setTitle("");
+        setConsoleName("PS5");
+        setOwned("physical");
+        setStatus("no-played");
+        setImageFile(null);
+
+    } catch (error) {
+        console.error("Error completo:", error.response.data);
+        alert("Error al guardar el juego");
+    }
+};
 
   return (
     <div className="dashboard">
