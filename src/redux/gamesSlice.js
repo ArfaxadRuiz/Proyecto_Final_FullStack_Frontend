@@ -2,19 +2,31 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
 /* =========================
-   1️⃣  THUNK (PETICIÓN AL BACKEND)
+   THUNK (PETICIÓN AL BACKEND)
 ========================= */
 
 export const fetchGames = createAsyncThunk(
   "games/fetchGames",
   async () => {
-    const response = await axios.get("http://localhost:8000/api/games/");
+
+    const token = localStorage.getItem("token");
+
+    const response = await axios.get(
+      "http://localhost:8000/api/games/",
+      {
+        headers: {
+          Authorization: `Bearer ${token}`
+        }
+      }
+    );
+
     return response.data;
   }
 );
 
+
 /* =========================
-   2️⃣  SLICE
+   SLICE
 ========================= */
 
 const gamesSlice = createSlice({
@@ -36,7 +48,7 @@ const gamesSlice = createSlice({
       })
       .addCase(fetchGames.rejected, (state, action) => {
         state.status = "failed";
-        state.error = action.error.message;
+        state.error = action.payload;
       });
   }
 });
