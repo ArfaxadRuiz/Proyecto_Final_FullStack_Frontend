@@ -22,7 +22,7 @@ function Card({title, img, consoleName, owned, status}){
 
             {/*Imagen del juego*/}
             <div className="card__img-box">
-                <img src={img} alt={title} className="card__img"/>
+                <img src={`http://localhost:8000${img}`} alt={title} />
             </div>
 
             {/*Consola*/}
